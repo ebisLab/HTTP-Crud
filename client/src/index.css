@@ -53,6 +53,16 @@ body {
   width: 75%;
   margin: 1rem auto;
 }
+
+.update-button {
+  position: absolute;
+  top: 25px;
+  right: 105px;
+  border: 1px solid rgb(243, 166, 24);
+  padding: 5px 10px;
+  background-color: rgb(206, 160, 60);
+}
+
 .save-button {
   position: absolute;
   top: 25px;
