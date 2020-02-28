@@ -9,6 +9,7 @@ import UpdateMovieForm from "./Movies/UpdateForm";
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [dependency, setDependency] = useState(false)
 
   const getMovieList = () => {
     axios
@@ -23,7 +24,8 @@ const App = () => {
 
   useEffect(() => {
     getMovieList();
-  }, []);
+    setDependency(false);
+  }, [dependency]);
 
   return (
     <>
@@ -38,7 +40,7 @@ const App = () => {
       </Route>
 
       <Route path="/update-movie/:id">
-        <UpdateMovieForm  test="testerino" setMovieList={setMovieList} movieList={movieList} />
+        <UpdateMovieForm  test="testerino" setDependency={setDependency} setMovieList={setMovieList} movieList={movieList} />
       </Route>
     </>
   );

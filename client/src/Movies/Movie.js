@@ -42,7 +42,7 @@ history.push(`/update-movie/${id}`);
     axios.delete(`http://localhost:5000/api/movies/${movie.id}`)
     .then(res=> { 
       // setMovieList(res.data)
-      setMovieList(res.data)
+      // setMovieList(res.data)
       history.push('/')
       console.log(res, 'deleted res')
     })
