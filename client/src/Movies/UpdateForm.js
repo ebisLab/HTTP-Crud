@@ -12,18 +12,25 @@ const UpdateMovieForm = (props) =>{
       
     });
 const {id} = useParams();
+// const itemToUpdate = props.movieList.find(thing => `${thing.id}` === id)
+// console.log('itemupdate outside usefect', itemToUpdate)
 
 
 useEffect(() => {
     // console.log(props.getData.map(item=> item.title), 'getData')
-    if (props.getData){
-        // const itemToUpdate = props.getData.find(thing => `${thing.id}` === id)
-console.log('HELLO FROM THE USEEFFECT')
-// setData(itemToUpdate)
-    }
+    console.log(props.movieList)
+    // if (props.movieList){
+        const itemToUpdate = props.movieList.find(thing => `${thing.id}` === id)
+        // const itemToUpdate = props.movieList.find(thing => `${thing.id}` === props.match.params.id)
+
+        // setData()
+        itemToUpdate && setData(itemToUpdate)
+// console.log(setData(itemToUpdate))
+console.log('HELLO FROM THE USEEFFECT', itemToUpdate)
+    // }
 // props.getData && setData(props.getData.find(thing => `${thing.id}` === id))
 
-}, [id, props.getData])
+}, [id, props.movieList])
 
 
     const changeHandler =(e)=>{
@@ -42,6 +49,7 @@ e.preventDefault()
         // console.log('event clicked', data)
     }
 // console.log('props.get-data~~>', props.getData)
+// console.log('setdata', setData(data))
     return(
         <form onSubmit={submitHandler}>
             <input 
