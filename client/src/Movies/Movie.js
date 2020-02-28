@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import MovieCard from './MovieCard';
 
-function Movie({ addToSavedList, setMovieList }) {
-  // console.log(setMovieList, 'set movie list')
+function Movie({ addToSavedList, setMovieList, setDependency }) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
   const history = useHistory();
@@ -41,8 +40,8 @@ history.push(`/update-movie/${id}`);
     const id = match.params.id
     axios.delete(`http://localhost:5000/api/movies/${movie.id}`)
     .then(res=> { 
-      // setMovieList(res.data)
-      // setMovieList(res.data)
+      setDependency(true);
+
       history.push('/')
       console.log(res, 'deleted res')
     })

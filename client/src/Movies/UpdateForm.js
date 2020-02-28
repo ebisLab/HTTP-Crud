@@ -36,7 +36,7 @@ e.preventDefault()
         axios
         .put(`http://localhost:5000/api/movies/${id}`, data)
         .then(res =>{
-        props.setDependency(true);
+         props.setDependency(true);
             history.push(`/movies/${id}`)
             })
         .catch(err => console.log(err))
